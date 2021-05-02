@@ -45,5 +45,17 @@ public class Materia {
         this.anio = anio;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        return this.hashCode()==o.hashCode();
+            
+    }
+
+    @Override
+    public int hashCode() {
+        return this.idMateria; 
+    }
+    
+    
 
 }

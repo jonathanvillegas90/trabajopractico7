@@ -6,14 +6,13 @@
 package TP7;
 
 import java.util.HashSet;
-import java.util.Set;
 
 /**
  *
  * @author Chony
  */
 public class Alumno {
-    Set<Materia>materias=new HashSet<>();
+    HashSet<Materia>materias=new HashSet<>();
     int legajo;
     String apellido,nombre;
 //constructor
@@ -52,11 +51,9 @@ public class Alumno {
     
     public void agregarMateria(Materia M){
         
-        if(!materias.contains(M)){
-            materias.add(M);
-     
-        }
-        
+       
+           materias.add(M);
+    
     }
     public int cantidadMaterias(){
         return materias.size();
