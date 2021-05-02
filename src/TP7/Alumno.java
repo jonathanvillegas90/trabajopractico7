@@ -50,8 +50,7 @@ public class Alumno {
     //metodos
     
     public void agregarMateria(Materia M){
-        
-       
+
            materias.add(M);
     
     }

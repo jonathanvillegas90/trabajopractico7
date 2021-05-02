@@ -15,6 +15,7 @@ public class Materia {
     String nombre;
     int anio;
 
+    
     public Materia(int idMateria, String nombre, int anio) {
         this.idMateria = idMateria;
         this.nombre = nombre;

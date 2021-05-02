@@ -5,6 +5,9 @@
  */
 package VistasTP7;
 
+import TP7.Alumno;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Chony
@@ -32,14 +35,14 @@ public class ViewAltaDeAlumno extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jbGuardar = new javax.swing.JButton();
+        jbNuevo = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        jtApellido = new javax.swing.JTextPane();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextPane2 = new javax.swing.JTextPane();
+        jtNombre = new javax.swing.JTextPane();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextPane3 = new javax.swing.JTextPane();
+        jtLegajo = new javax.swing.JTextPane();
         jbSalir = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
@@ -60,15 +63,25 @@ public class ViewAltaDeAlumno extends javax.swing.JInternalFrame {
         jLabel4.setForeground(new java.awt.Color(102, 153, 255));
         jLabel4.setText("NOMBRE:");
 
-        jButton1.setText("Guardar");
+        jbGuardar.setText("Guardar");
+        jbGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbGuardarActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Nuevo");
+        jbNuevo.setText("Nuevo");
+        jbNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbNuevoActionPerformed(evt);
+            }
+        });
 
-        jScrollPane1.setViewportView(jTextPane1);
+        jScrollPane1.setViewportView(jtApellido);
 
-        jScrollPane2.setViewportView(jTextPane2);
+        jScrollPane2.setViewportView(jtNombre);
 
-        jScrollPane3.setViewportView(jTextPane3);
+        jScrollPane3.setViewportView(jtLegajo);
 
         jbSalir.setText("Salir");
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -101,9 +114,9 @@ public class ViewAltaDeAlumno extends javax.swing.JInternalFrame {
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(jbGuardar)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2)))
+                        .addComponent(jbNuevo)))
                 .addGap(30, 30, 30)
                 .addComponent(jbSalir)
                 .addContainerGap(41, Short.MAX_VALUE))
@@ -128,8 +141,8 @@ public class ViewAltaDeAlumno extends javax.swing.JInternalFrame {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
+                    .addComponent(jbGuardar)
+                    .addComponent(jbNuevo)
                     .addComponent(jbSalir))
                 .addGap(33, 33, 33))
         );
@@ -152,10 +165,28 @@ public class ViewAltaDeAlumno extends javax.swing.JInternalFrame {
         dispose();
     }//GEN-LAST:event_jbSalirActionPerformed
 
+    private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
+       jtLegajo.setText("");
+       jtApellido.setText("");
+       jtNombre.setText("");
+    }//GEN-LAST:event_jbNuevoActionPerformed
+
+    private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
+        int leg=Integer.parseInt(jtLegajo.getText());
+        String ape=jtApellido.getText();
+        String nom=jtNombre.getText();
+        
+        Alumno nuevoAlumno= new Alumno(leg,ape,nom);
+        
+        JOptionPane.showMessageDialog(this,"Alumno agregado correctamente");
+        
+       jtLegajo.setText("");
+       jtApellido.setText("");
+       jtNombre.setText("");
+    }//GEN-LAST:event_jbGuardarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -164,9 +195,11 @@ public class ViewAltaDeAlumno extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextPane jTextPane1;
-    private javax.swing.JTextPane jTextPane2;
-    private javax.swing.JTextPane jTextPane3;
+    private javax.swing.JButton jbGuardar;
+    private javax.swing.JButton jbNuevo;
     private javax.swing.JButton jbSalir;
+    private javax.swing.JTextPane jtApellido;
+    private javax.swing.JTextPane jtLegajo;
+    private javax.swing.JTextPane jtNombre;
     // End of variables declaration//GEN-END:variables
 }

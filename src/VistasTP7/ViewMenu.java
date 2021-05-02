@@ -5,17 +5,20 @@
  */
 package VistasTP7;
 
+import TP7.Colegio;
+
 /**
  *
  * @author Chony
  */
 public class ViewMenu extends javax.swing.JFrame {
-
+    private Colegio colegio;
     /**
      * Creates new form ViewMenu
      */
     public ViewMenu() {
         initComponents();
+        
     }
 
     /**
@@ -124,7 +127,7 @@ public class ViewMenu extends javax.swing.JFrame {
         escritorio.removeAll();
         escritorio.repaint();
         
-        ViewAltaDeMaterias vam=new ViewAltaDeMaterias();
+        ViewAltaDeMaterias vam=new ViewAltaDeMaterias(colegio);
         escritorio.add(vam);
         vam.setVisible(true);
         escritorio.moveToFront(vam);

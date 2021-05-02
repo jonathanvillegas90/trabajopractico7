@@ -6,15 +6,21 @@
 
 package VistasTP7;
 
+import TP7.Colegio;
+import TP7.Materia;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Chony
  */
 public class ViewAltaDeMaterias extends javax.swing.JInternalFrame {
-
-    /** Creates new form ViewAltaDeMaterias */
-    public ViewAltaDeMaterias() {
+    
+    /** Creates new form ViewAltaDeMaterias
+     * @param colegio */
+    public ViewAltaDeMaterias(Colegio colegio) {
         initComponents();
+        
     }
 
     /** This method is called from within the constructor to
@@ -31,7 +37,7 @@ public class ViewAltaDeMaterias extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jtpCodigoMateria = new javax.swing.JTextPane();
-        jButton1 = new javax.swing.JButton();
+        jbGuardar = new javax.swing.JButton();
         jbNuevo = new javax.swing.JButton();
         jbSalir = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -53,7 +59,12 @@ public class ViewAltaDeMaterias extends javax.swing.JInternalFrame {
 
         jScrollPane3.setViewportView(jtpCodigoMateria);
 
-        jButton1.setText("Guardar");
+        jbGuardar.setText("Guardar");
+        jbGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbGuardarActionPerformed(evt);
+            }
+        });
 
         jbNuevo.setText("Nuevo");
         jbNuevo.addActionListener(new java.awt.event.ActionListener() {
@@ -97,7 +108,7 @@ public class ViewAltaDeMaterias extends javax.swing.JInternalFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1)
+                        .addComponent(jbGuardar)
                         .addGap(18, 18, 18)
                         .addComponent(jbNuevo)
                         .addGap(18, 18, 18)
@@ -129,9 +140,7 @@ public class ViewAltaDeMaterias extends javax.swing.JInternalFrame {
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(jLabel3))
+                    .addComponent(jLabel3)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,7 +148,7 @@ public class ViewAltaDeMaterias extends javax.swing.JInternalFrame {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(jbGuardar)
                     .addComponent(jbNuevo)
                     .addComponent(jbSalir))
                 .addGap(82, 82, 82))
@@ -169,9 +178,24 @@ public class ViewAltaDeMaterias extends javax.swing.JInternalFrame {
         jtpAnio.setText("");
     }//GEN-LAST:event_jbNuevoActionPerformed
 
+    private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
+     
+      int cod= Integer.parseInt(jtpCodigoMateria.getText());
+      String nom=jtpNombreMateria.getText();
+      int anio=Integer.parseInt(jtpAnio.getText());
+      Materia nuevaMateria=new Materia(cod,nom,anio);
+      
+      JOptionPane.showMessageDialog(this,"Materia agregada correctamente");
+      
+      jtpCodigoMateria.setText("");
+      jtpNombreMateria.setText("");
+      jtpAnio.setText("");
+      
+      
+    }//GEN-LAST:event_jbGuardarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -180,6 +204,7 @@ public class ViewAltaDeMaterias extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JButton jbGuardar;
     private javax.swing.JButton jbNuevo;
     private javax.swing.JButton jbSalir;
     private javax.swing.JTextPane jtpAnio;
