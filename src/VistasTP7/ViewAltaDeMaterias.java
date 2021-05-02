@@ -30,16 +30,16 @@ public class ViewAltaDeMaterias extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextPane3 = new javax.swing.JTextPane();
+        jtpCodigoMateria = new javax.swing.JTextPane();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jbNuevo = new javax.swing.JButton();
+        jbSalir = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        jtpNombreMateria = new javax.swing.JTextPane();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextPane2 = new javax.swing.JTextPane();
+        jtpAnio = new javax.swing.JTextPane();
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
 
@@ -51,13 +51,23 @@ public class ViewAltaDeMaterias extends javax.swing.JInternalFrame {
         jLabel2.setForeground(new java.awt.Color(51, 102, 255));
         jLabel2.setText("CODIGO DE MATERIA:");
 
-        jScrollPane3.setViewportView(jTextPane3);
+        jScrollPane3.setViewportView(jtpCodigoMateria);
 
         jButton1.setText("Guardar");
 
-        jButton2.setText("Nuevo");
+        jbNuevo.setText("Nuevo");
+        jbNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbNuevoActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Salir");
+        jbSalir.setText("Salir");
+        jbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 102, 255));
@@ -67,9 +77,9 @@ public class ViewAltaDeMaterias extends javax.swing.JInternalFrame {
         jLabel4.setForeground(new java.awt.Color(51, 102, 255));
         jLabel4.setText("AÑO AL QUE PERTENECE:");
 
-        jScrollPane1.setViewportView(jTextPane1);
+        jScrollPane1.setViewportView(jtpNombreMateria);
 
-        jScrollPane2.setViewportView(jTextPane2);
+        jScrollPane2.setViewportView(jtpAnio);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -89,9 +99,9 @@ public class ViewAltaDeMaterias extends javax.swing.JInternalFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton1)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2)
+                        .addComponent(jbNuevo)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton3)))
+                        .addComponent(jbSalir)))
                 .addGap(18, 18, 18))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
@@ -130,8 +140,8 @@ public class ViewAltaDeMaterias extends javax.swing.JInternalFrame {
                 .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(jbNuevo)
+                    .addComponent(jbSalir))
                 .addGap(82, 82, 82))
         );
 
@@ -149,11 +159,19 @@ public class ViewAltaDeMaterias extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
+        dispose();
+    }//GEN-LAST:event_jbSalirActionPerformed
+
+    private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
+        jtpCodigoMateria.setText("");
+        jtpNombreMateria.setText("");
+        jtpAnio.setText("");
+    }//GEN-LAST:event_jbNuevoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -162,9 +180,11 @@ public class ViewAltaDeMaterias extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextPane jTextPane1;
-    private javax.swing.JTextPane jTextPane2;
-    private javax.swing.JTextPane jTextPane3;
+    private javax.swing.JButton jbNuevo;
+    private javax.swing.JButton jbSalir;
+    private javax.swing.JTextPane jtpAnio;
+    private javax.swing.JTextPane jtpCodigoMateria;
+    private javax.swing.JTextPane jtpNombreMateria;
     // End of variables declaration//GEN-END:variables
 
 }

@@ -45,10 +45,23 @@ public class Materia {
         this.anio = anio;
     }
 
+    
     @Override
     public boolean equals(Object o) {
-        return this.hashCode()==o.hashCode();
-            
+       if (this == o) {
+            return true;
+        }
+        if (o == null) {
+            return false;
+        }
+        if (getClass() != o.getClass()) {
+            return false;
+        }
+        final Materia other = (Materia) o;
+        if (this.hashCode() != other.hashCode()) {
+            return false;
+        }
+        return true;     
     }
 
     @Override

@@ -30,13 +30,13 @@ public class ViewMenu extends javax.swing.JFrame {
         escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jmiAgregarMateria = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        jmiAltadeAlumno = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        jmiInscripcion = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        jmiSalir = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,35 +52,55 @@ public class ViewMenu extends javax.swing.JFrame {
         );
 
         jMenu1.setText("Materias");
-
-        jMenuItem1.setText("Agregar Materia");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                jMenu1ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+
+        jmiAgregarMateria.setText("Agregar Materia");
+        jmiAgregarMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiAgregarMateriaActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jmiAgregarMateria);
 
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Alumnos");
 
-        jMenuItem2.setText("Alta de Alumno");
-        jMenu2.add(jMenuItem2);
+        jmiAltadeAlumno.setText("Alta de Alumno");
+        jmiAltadeAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiAltadeAlumnoActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jmiAltadeAlumno);
 
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Registro");
 
-        jMenuItem3.setText("Inscripción ");
-        jMenu3.add(jMenuItem3);
+        jmiInscripcion.setText("Inscripción ");
+        jmiInscripcion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiInscripcionActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jmiInscripcion);
 
         jMenuBar1.add(jMenu3);
 
         jMenu4.setText("Salida");
 
-        jMenuItem4.setText("Salir");
-        jMenu4.add(jMenuItem4);
+        jmiSalir.setText("Salir");
+        jmiSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiSalirActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jmiSalir);
 
         jMenuBar1.add(jMenu4);
 
@@ -100,12 +120,44 @@ public class ViewMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void jmiAgregarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAgregarMateriaActionPerformed
         escritorio.removeAll();
         escritorio.repaint();
         
+        ViewAltaDeMaterias vam=new ViewAltaDeMaterias();
+        escritorio.add(vam);
+        vam.setVisible(true);
+        escritorio.moveToFront(vam);
         
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_jmiAgregarMateriaActionPerformed
+
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu1ActionPerformed
+
+    private void jmiAltadeAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAltadeAlumnoActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        
+        ViewAltaDeAlumno vaa=new ViewAltaDeAlumno();
+        escritorio.add(vaa);
+        vaa.setVisible(true);
+        escritorio.moveToFront(vaa);
+    }//GEN-LAST:event_jmiAltadeAlumnoActionPerformed
+
+    private void jmiInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiInscripcionActionPerformed
+       escritorio.removeAll();
+        escritorio.repaint();
+        
+        ViewFormularioDeInscripcion vfi=new ViewFormularioDeInscripcion();
+        escritorio.add(vfi);
+        vfi.setVisible(true);
+        escritorio.moveToFront(vfi);
+    }//GEN-LAST:event_jmiInscripcionActionPerformed
+
+    private void jmiSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiSalirActionPerformed
+        dispose();
+    }//GEN-LAST:event_jmiSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -149,9 +201,9 @@ public class ViewMenu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jmiAgregarMateria;
+    private javax.swing.JMenuItem jmiAltadeAlumno;
+    private javax.swing.JMenuItem jmiInscripcion;
+    private javax.swing.JMenuItem jmiSalir;
     // End of variables declaration//GEN-END:variables
 }
