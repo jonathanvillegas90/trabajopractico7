@@ -5,14 +5,19 @@
  */
 package VistasTP7;
 
-import TP7.Colegio;
+import TP7.Alumno;
+import TP7.Materia;
+import java.util.HashSet;
+
+
 
 /**
  *
  * @author Chony
  */
 public class ViewMenu extends javax.swing.JFrame {
-    private Colegio colegio;
+    private HashSet<Alumno> listaAlumnos=new HashSet<>();
+    private HashSet<Materia> listaMaterias=new HashSet<>();
     /**
      * Creates new form ViewMenu
      */
@@ -127,7 +132,7 @@ public class ViewMenu extends javax.swing.JFrame {
         escritorio.removeAll();
         escritorio.repaint();
         
-        ViewAltaDeMaterias vam=new ViewAltaDeMaterias(colegio);
+        ViewAltaDeMaterias vam=new ViewAltaDeMaterias(listaMaterias);
         escritorio.add(vam);
         vam.setVisible(true);
         escritorio.moveToFront(vam);
@@ -142,7 +147,7 @@ public class ViewMenu extends javax.swing.JFrame {
         escritorio.removeAll();
         escritorio.repaint();
         
-        ViewAltaDeAlumno vaa=new ViewAltaDeAlumno();
+        ViewAltaDeAlumno vaa=new ViewAltaDeAlumno(listaAlumnos);
         escritorio.add(vaa);
         vaa.setVisible(true);
         escritorio.moveToFront(vaa);
@@ -152,7 +157,7 @@ public class ViewMenu extends javax.swing.JFrame {
        escritorio.removeAll();
         escritorio.repaint();
         
-        ViewFormularioDeInscripcion vfi=new ViewFormularioDeInscripcion();
+        ViewFormularioDeInscripcion vfi=new ViewFormularioDeInscripcion(listaAlumnos,listaMaterias);
         escritorio.add(vfi);
         vfi.setVisible(true);
         escritorio.moveToFront(vfi);

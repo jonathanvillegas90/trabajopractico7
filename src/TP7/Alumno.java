@@ -6,6 +6,7 @@
 package TP7;
 
 import java.util.HashSet;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -51,11 +52,20 @@ public class Alumno {
     
     public void agregarMateria(Materia M){
 
-           materias.add(M);
-    
+           if(materias.add(M)){
+               materias.add(M);
+               JOptionPane.showMessageDialog(null, "Alumno agregado");
+           }else{
+               JOptionPane.showMessageDialog(null, "Alumno ya se encontraba inscripto");
+           }
     }
     public int cantidadMaterias(){
         return materias.size();
+    }
+
+    @Override
+    public String toString() {
+        return this.apellido+", "+this.nombre; //To change body of generated methods, choose Tools | Templates.
     }
     
 }

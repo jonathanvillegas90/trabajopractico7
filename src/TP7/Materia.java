@@ -69,6 +69,11 @@ public class Materia {
     public int hashCode() {
         return this.idMateria; 
     }
+
+    @Override
+    public String toString() {
+        return this.nombre; //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 

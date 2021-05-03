@@ -5,19 +5,29 @@
  */
 package VistasTP7;
 
+import TP7.Alumno;
+import TP7.Materia;
+import java.util.HashSet;
+
 /**
  *
  * @author Chony
  */
 public class ViewFormularioDeInscripcion extends javax.swing.JInternalFrame {
 
+    private HashSet<Alumno> listaAlumnos;
+    private HashSet<Materia> listaMaterias;
     /**
      * Creates new form ViewFormularioDeInscripcion
      */
-    public ViewFormularioDeInscripcion() {
+    public ViewFormularioDeInscripcion(HashSet<Alumno>lAlumno,HashSet<Materia>lMateria) {
         initComponents();
+        this.listaAlumnos=lAlumno;
+        this.listaMaterias=lMateria;
+        cargaComboMaterias();
+        cargaComboAlumnos();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -53,14 +63,11 @@ public class ViewFormularioDeInscripcion extends javax.swing.JInternalFrame {
         jLabel3.setForeground(new java.awt.Color(51, 102, 255));
         jLabel3.setText("ELIJA UN ALUMNO: ");
 
-        jcbMateria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jcbMateria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbMateriaActionPerformed(evt);
             }
         });
-
-        jcbAlumno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jbSalir.setText("Salir");
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -70,6 +77,11 @@ public class ViewFormularioDeInscripcion extends javax.swing.JInternalFrame {
         });
 
         jbInscribir.setText("Inscribir");
+        jbInscribir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbInscribirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -81,9 +93,9 @@ public class ViewFormularioDeInscripcion extends javax.swing.JInternalFrame {
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
                 .addGap(29, 29, 29)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jcbMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jcbAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jcbAlumno, 0, 220, Short.MAX_VALUE)
+                    .addComponent(jcbMateria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(53, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -131,6 +143,17 @@ public class ViewFormularioDeInscripcion extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cargaComboMaterias(){
+        for(Materia materia:listaMaterias){
+            jcbMateria.addItem(materia);
+        }
+    }
+    private void cargaComboAlumnos(){
+        for(Alumno alumno:listaAlumnos){
+            jcbAlumno.addItem(alumno);
+        }
+    }
+    
     private void jcbMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbMateriaActionPerformed
         
     }//GEN-LAST:event_jcbMateriaActionPerformed
@@ -138,6 +161,14 @@ public class ViewFormularioDeInscripcion extends javax.swing.JInternalFrame {
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
         dispose();
     }//GEN-LAST:event_jbSalirActionPerformed
+
+    private void jbInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInscribirActionPerformed
+        Alumno aElegido=(Alumno)jcbAlumno.getSelectedItem();
+        Materia mElegida=(Materia)jcbMateria.getSelectedItem();
+        
+        
+        aElegido.agregarMateria(mElegida);
+    }//GEN-LAST:event_jbInscribirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -148,7 +179,7 @@ public class ViewFormularioDeInscripcion extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton jbInscribir;
     private javax.swing.JButton jbSalir;
-    private javax.swing.JComboBox<String> jcbAlumno;
-    private javax.swing.JComboBox<String> jcbMateria;
+    private javax.swing.JComboBox<Alumno> jcbAlumno;
+    private javax.swing.JComboBox<Materia> jcbMateria;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,8 +6,9 @@
 
 package VistasTP7;
 
-import TP7.Colegio;
+
 import TP7.Materia;
+import java.util.HashSet;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,11 +16,12 @@ import javax.swing.JOptionPane;
  * @author Chony
  */
 public class ViewAltaDeMaterias extends javax.swing.JInternalFrame {
-    
+    private HashSet<Materia> listaMaterias;
     /** Creates new form ViewAltaDeMaterias
      * @param colegio */
-    public ViewAltaDeMaterias(Colegio colegio) {
+    public ViewAltaDeMaterias(HashSet<Materia> lMaterias) {
         initComponents();
+        this.listaMaterias=lMaterias;
         
     }
 
@@ -184,7 +186,7 @@ public class ViewAltaDeMaterias extends javax.swing.JInternalFrame {
       String nom=jtpNombreMateria.getText();
       int anio=Integer.parseInt(jtpAnio.getText());
       Materia nuevaMateria=new Materia(cod,nom,anio);
-      
+      listaMaterias.add(nuevaMateria);
       JOptionPane.showMessageDialog(this,"Materia agregada correctamente");
       
       jtpCodigoMateria.setText("");

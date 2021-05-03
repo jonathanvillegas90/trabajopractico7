@@ -6,6 +6,7 @@
 package VistasTP7;
 
 import TP7.Alumno;
+import java.util.HashSet;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,12 +14,13 @@ import javax.swing.JOptionPane;
  * @author Chony
  */
 public class ViewAltaDeAlumno extends javax.swing.JInternalFrame {
-
+    private HashSet<Alumno> listaAlumnos;
     /**
      * Creates new form ViewAltaDeAlumno
      */
-    public ViewAltaDeAlumno() {
+    public ViewAltaDeAlumno(HashSet<Alumno> lAlumnos) {
         initComponents();
+        this.listaAlumnos=lAlumnos;
     }
 
     /**
@@ -177,6 +179,7 @@ public class ViewAltaDeAlumno extends javax.swing.JInternalFrame {
         String nom=jtNombre.getText();
         
         Alumno nuevoAlumno= new Alumno(leg,ape,nom);
+        listaAlumnos.add(nuevoAlumno);
         
         JOptionPane.showMessageDialog(this,"Alumno agregado correctamente");
         
